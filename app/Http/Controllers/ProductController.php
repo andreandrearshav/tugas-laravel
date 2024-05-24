@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    public function dashboard(){
+        return view('dashboard');
+    }
+    
     public function index(){
         $products =DB::table('products')
             ->orderBy('id', 'desc')
@@ -73,7 +77,7 @@ class ProductController extends Controller
 
 
 //update dan delete
-public function edit($id){
+public function edits($id){
     $product = Product::find($id);
     return view('products.create', compact('product'));
 }
@@ -87,12 +91,24 @@ public function update(Request $request, $id){
     $product->name = $request->weight;
     $product->name = $request->price;
     $product->name = $request->condition;
+    
     // Update atribut lainnya sesuai kebutuhan
 
     $product->save();
 
     return redirect()->route('products.index')->with('success', 'Product updated successfully');
+
 }
+
+
+    
+ 
+     
+
+
+
+
+
 
 public function destroy($id)
     {
@@ -108,4 +124,5 @@ public function destroy($id)
 
 
 }
+
 

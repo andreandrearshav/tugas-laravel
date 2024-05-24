@@ -18,19 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('dashboard', [ProductController::class, 'dashboard'])->name('dashboard');
 
-Route::get('products', [ProductController::class,'index'])->name('products.index');
-
-Route::get('products/create', [ProductController::class,'create'])->name('products.create');
-
-Route::post('products/store', [ProductController::class,'store'])->name('products.store');
-
-Route::get('products/list', [ProductController::class,'list'])->name('products.index');
-
-Route::get('products/list', [ProductController::class,'list'])->name('products.list');
-
+Route::get('products', [ProductController::class, 'index'])->name('products.index');
+Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('products/store', [ProductController::class, 'store'])->name('products.store');
+Route::get('products/list', [ProductController::class, 'list'])->name('products.list'); 
 Route::delete('products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('products/{id}/update', [ProductController::class, 'update'])->name('products.update');
 
-Route::put('products/{id}', [ProductController::class, 'update'])->name('products.update');
 
 
