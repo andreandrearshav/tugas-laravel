@@ -27,7 +27,8 @@ class ProductTableSeeder extends Seeder
                 'condition'=>$condition[rand(0,1)],
                 'description'=>'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, distinctio?',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'password' =>bcrypt(123456)
             ]);
         }
     }

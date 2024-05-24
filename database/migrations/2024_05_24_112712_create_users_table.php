@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price');
-            $table->integer('stock');
-            $table->integer('weight');
-            $table->text('image');
-            $table->enum('condition',['baru', 'bekas']);
-            $table->text('description');
             $table->string('password');
             $table->string('email')->unique();
             $table->enum('role',['operator', 'keuangan', 'marketing'])
@@ -30,10 +24,6 @@ return new class extends Migration
         });
     }
 
-    
-
-
-
     /**
      * Reverse the migrations.
      *
@@ -41,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('users');
     }
 };
